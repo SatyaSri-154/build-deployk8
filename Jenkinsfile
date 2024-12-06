@@ -6,7 +6,7 @@ pipeline {
   }
 
   agent {
-       label "slavenode-13"
+      label "slavenode-13"
     }
 
   stages {
@@ -15,6 +15,7 @@ pipeline {
       steps {
         git 'https://github.com/SatyaSri-154/build-deployk8.git'
       }
+    }
 
 
     stage('Build image') {
@@ -46,6 +47,3 @@ pipeline {
   }
 
 }
-}
-
-
