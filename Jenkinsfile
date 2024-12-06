@@ -13,8 +13,11 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/SatyaSri-154/build-deployk8.git'
-      }
+        //git 'https://github.com/SatyaSri-154/build-deployk8.git'
+        script {
+          sh echo "Clone Completed"
+        }
+        }
     }
 
 
