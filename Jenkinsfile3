@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+        label "slavenode-13"
+    }
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'Cloning the github repo'
+                git branch: 'main', url: 'https://github.com/SatyaSri-154/build-deployk8.git'
+            }
+        }
+        stage('Build image') {
+            steps {
+                echo 'Building the docker image'
+                sh 'docker build -t myimage .'
+            }
+        }
+        stage('Publish image') {
+            steps {
+                echo 'publishing image to dockerhub'
+                sh 'docker tag myimage lakshmisatya/myimage:latest'
+                sh 'docker push lakshmisatya/myimage:latest'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to kubernetes cluster'
+                sh 'kubectl apply -f myweb.yaml'
+            }
+        }
+    }
+}
