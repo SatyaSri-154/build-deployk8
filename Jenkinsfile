@@ -13,7 +13,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/SatyaSri-154/build-deploy-k8s.git'
+        git 'https://github.com/SatyaSri-154/build-deployk8.git'
       }
 
 
