@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "slavenode"
+        label "slavenode-12"
     }
     stages {
         stage('Checkout Code') {
